@@ -7,29 +7,36 @@ created: '2026-05-08'
 modified: '2026-05-08'
 reconciled: false
 tags:
-- Web3
-- DeFi
-- TVL
-- Open Source
-- Analytics
-- Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for DefiLlama. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+  - DeFi
+  - Crypto
+  - Rate Limiting
+description: >-
+  DefiLlama operates the Public API on a fair-use basis without published per-key limits;
+  empirically allows around 300 requests per minute per IP. The Pro API documents a higher rate
+  limit (typically 1,000 requests per minute) tied to the API key. Throttled requests return HTTP 429.
+notes: Free Public API rate limit is best-effort fair-use; Pro rate is reconciled from public
+  pricing materials and may change.
 sources:
-- https://defillama.com/
+  - https://defillama.com/docs/api
+  - https://defillama.com/pro-api
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  - name: Public API (fair use)
+    scope: ip
+    metric: requests_per_minute
+    limit: 300
+    notes: Soft fair-use limit; not contractually guaranteed.
+  - name: Pro API
+    scope: api_key
+    metric: requests_per_minute
+    limit: 1000
+    notes: Documented Pro rate limit.
 policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  - name: Caching
+    description: Cache TVL responses where possible; DefiLlama updates many endpoints on a 1-hour cycle.
+  - name: Backoff Strategy
+    description: On 429 honor Retry-After and apply exponential backoff with jitter.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com

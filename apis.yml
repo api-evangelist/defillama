@@ -2,22 +2,97 @@ aid: defillama
 url: https://raw.githubusercontent.com/api-evangelist/defillama/refs/heads/main/apis.yml
 name: DefiLlama
 x-type: company
-description: >-
-  DefiLlama is the largest open-source DeFi TVL aggregator and analytics platform. Free APIs cover TVL, yields, prices, stablecoins, fees, and DEX volumes.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Web3
   - DeFi
   - TVL
+  - Crypto
+  - Stablecoins
+  - Yields
+  - Bridges
+  - Aggregator
   - Open Source
-  - Analytics
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+description: >-
+  DefiLlama is the largest open-source DeFi TVL and yield aggregator. It publishes a free public
+  REST API (api.llama.fi) and a Pro API (pro-api.llama.fi) that adds higher rate limits and
+  exclusive endpoints for token unlocks, bridges, digital-asset treasuries, and other advanced
+  datasets. Free API requires no authentication; Pro is $300/month.
+apis:
+  - aid: defillama:public-api
+    name: DefiLlama Public API
+    tags:
+      - DeFi
+      - TVL
+      - Stablecoins
+      - Yields
+      - DEX Volume
+      - Fees
+      - Free
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.llama.fi
+    humanURL: https://defillama.com/docs/api
+    description: >-
+      Free, no-auth REST API exposing 31+ endpoints for protocol TVL, chain TVL, coin prices,
+      stablecoin metrics, yield pools, DEX volumes, and fees. Underpins thousands of dashboards
+      and integrations.
+    properties:
+      - type: Documentation
+        url: https://defillama.com/docs/api
+      - type: Pricing
+        url: https://defillama.com/pro-api
+    x-features:
+      - 31+ endpoints
+      - Protocol and chain TVL
+      - Stablecoin issuance and circulation
+      - Yield pool data
+      - DEX volumes and fees
+      - No authentication
+    x-use-cases:
+      - DeFi dashboards and tickers
+      - Research notebooks
+      - Stablecoin transparency tools
+  - aid: defillama:pro-api
+    name: DefiLlama Pro API
+    tags:
+      - DeFi
+      - TVL
+      - Token Unlocks
+      - Bridges
+      - Treasuries
+      - Commercial
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://pro-api.llama.fi
+    humanURL: https://defillama.com/pro-api
+    description: >-
+      Paid REST API ($300/month) with higher rate limits and 38 exclusive endpoints covering
+      token unlocks, cross-chain bridges, digital-asset treasury data, and other advanced
+      datasets. Authenticated via API key path segment.
+    properties:
+      - type: Documentation
+        url: https://defillama.com/docs/api
+      - type: Pricing
+        url: https://defillama.com/pro-api
+    x-features:
+      - 38 exclusive endpoints (unlocks, bridges, treasuries)
+      - Higher rate limits than public
+      - Same data freshness as DefiLlama UI
+    x-use-cases:
+      - Commercial DeFi analytics products
+      - Token-unlock alerting
+      - Treasury compliance dashboards
 common:
-  - type: Website
+  - type: Portal
     url: https://defillama.com/
+  - type: Documentation
+    url: https://defillama.com/docs/api
+  - type: Pricing
+    url: https://defillama.com/pro-api
+  - type: GitHub
+    url: https://github.com/DefiLlama
   - type: Plans
     url: plans/defillama-plans-pricing.yml
   - type: RateLimits
