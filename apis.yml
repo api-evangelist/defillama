@@ -1,0 +1,29 @@
+aid: defillama
+url: https://raw.githubusercontent.com/api-evangelist/defillama/refs/heads/main/apis.yml
+name: DefiLlama
+x-type: company
+description: >-
+  DefiLlama is the largest open-source DeFi TVL aggregator and analytics platform. Free APIs cover TVL, yields, prices, stablecoins, fees, and DEX volumes.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Web3
+  - DeFi
+  - TVL
+  - Open Source
+  - Analytics
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://defillama.com/
+  - type: Plans
+    url: plans/defillama-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/defillama-rate-limits.yml
+  - type: FinOps
+    url: finops/defillama-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
