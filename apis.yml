@@ -1,7 +1,7 @@
 aid: defillama
 url: https://raw.githubusercontent.com/api-evangelist/defillama/refs/heads/main/apis.yml
 name: DefiLlama
-x-type: company
+kind: company
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Web3
