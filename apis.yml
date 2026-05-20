@@ -85,6 +85,8 @@ apis:
       - Token-unlock alerting
       - Treasury compliance dashboards
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/defillama
   - type: Portal
     url: https://defillama.com/
   - type: Documentation
