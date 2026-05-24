@@ -1,0 +1,544 @@
+openapi: 3.1.0
+info:
+  title: DefiLlama Public API
+  version: "1.0.0"
+  description: >-
+    DefiLlama is the largest open-source DeFi TVL and yield aggregator.
+    The public REST API at api.llama.fi exposes TVL, prices, stablecoins,
+    yields, DEX/options volumes, fees, and revenue datasets without
+    authentication. The Pro API at pro-api.llama.fi provides higher rate
+    limits and additional endpoints under a paid plan.
+  contact:
+    name: DefiLlama
+    url: https://defillama.com/docs/api
+  license:
+    name: Open Data
+    url: https://defillama.com
+servers:
+  - url: https://api.llama.fi
+    description: Free public API (no auth)
+  - url: https://coins.llama.fi
+    description: Coins and prices API
+  - url: https://stablecoins.llama.fi
+    description: Stablecoins API
+  - url: https://yields.llama.fi
+    description: Yields API
+  - url: https://pro-api.llama.fi/{apiKey}
+    description: Pro API (paid)
+    variables:
+      apiKey:
+        default: YOUR_API_KEY
+        description: DefiLlama Pro API key
+tags:
+  - name: TVL
+  - name: Coins
+  - name: Stablecoins
+  - name: Yields
+  - name: Volumes
+  - name: Fees
+paths:
+  /protocols:
+    get:
+      tags: [TVL]
+      summary: List all protocols with current TVL
+      operationId: listProtocols
+      responses:
+        "200":
+          description: Array of protocols
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /protocol/{protocol}:
+    get:
+      tags: [TVL]
+      summary: Historical TVL of a protocol with chain and token breakdowns
+      operationId: getProtocol
+      parameters:
+        - in: path
+          name: protocol
+          required: true
+          schema: { type: string }
+          description: Protocol slug, e.g. aave
+      responses:
+        "200":
+          description: Protocol detail
+          content:
+            application/json:
+              schema:
+                type: object
+  /tvl/{protocol}:
+    get:
+      tags: [TVL]
+      summary: Current TVL of a protocol
+      operationId: getProtocolTvl
+      parameters:
+        - in: path
+          name: protocol
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Current TVL value
+          content:
+            application/json:
+              schema:
+                type: number
+  /v2/historicalChainTvl:
+    get:
+      tags: [TVL]
+      summary: Historical TVL across all chains
+      operationId: getHistoricalChainTvl
+      responses:
+        "200":
+          description: Historical TVL series
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /v2/historicalChainTvl/{chain}:
+    get:
+      tags: [TVL]
+      summary: Historical TVL for a specific chain
+      operationId: getHistoricalChainTvlByChain
+      parameters:
+        - in: path
+          name: chain
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Historical TVL series for the chain
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /v2/chains:
+    get:
+      tags: [TVL]
+      summary: Current TVL of all chains
+      operationId: listChains
+      responses:
+        "200":
+          description: Array of chains with TVL
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /prices/current/{coins}:
+    get:
+      tags: [Coins]
+      summary: Current token prices by contract address
+      operationId: getCurrentPrices
+      parameters:
+        - in: path
+          name: coins
+          required: true
+          schema: { type: string }
+          description: Comma-separated coins, e.g. ethereum:0x...,coingecko:ethereum
+      responses:
+        "200":
+          description: Prices map
+          content:
+            application/json:
+              schema:
+                type: object
+  /prices/historical/{timestamp}/{coins}:
+    get:
+      tags: [Coins]
+      summary: Historical token prices at a UNIX timestamp
+      operationId: getHistoricalPrices
+      parameters:
+        - in: path
+          name: timestamp
+          required: true
+          schema: { type: integer }
+        - in: path
+          name: coins
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Historical prices map
+          content:
+            application/json:
+              schema:
+                type: object
+  /batchHistorical:
+    get:
+      tags: [Coins]
+      summary: Batch historical prices for many coins
+      operationId: batchHistoricalPrices
+      parameters:
+        - in: query
+          name: coins
+          required: true
+          schema: { type: string }
+          description: JSON-encoded mapping of coin to array of timestamps
+      responses:
+        "200":
+          description: Batch historical prices
+          content:
+            application/json:
+              schema:
+                type: object
+  /chart/{coins}:
+    get:
+      tags: [Coins]
+      summary: Token price chart at intervals
+      operationId: getCoinChart
+      parameters:
+        - in: path
+          name: coins
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Chart data
+          content:
+            application/json:
+              schema:
+                type: object
+  /percentage/{coins}:
+    get:
+      tags: [Coins]
+      summary: Price percent change for coins
+      operationId: getPercentageChange
+      parameters:
+        - in: path
+          name: coins
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Percent change values
+          content:
+            application/json:
+              schema:
+                type: object
+  /prices/first/{coins}:
+    get:
+      tags: [Coins]
+      summary: First recorded price for coins
+      operationId: getFirstPrices
+      parameters:
+        - in: path
+          name: coins
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Earliest prices
+          content:
+            application/json:
+              schema:
+                type: object
+  /block/{chain}/{timestamp}:
+    get:
+      tags: [Coins]
+      summary: Closest block on a chain to a UNIX timestamp
+      operationId: getBlock
+      parameters:
+        - in: path
+          name: chain
+          required: true
+          schema: { type: string }
+        - in: path
+          name: timestamp
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Block info
+          content:
+            application/json:
+              schema:
+                type: object
+  /stablecoins:
+    get:
+      tags: [Stablecoins]
+      summary: List stablecoins with circulation
+      operationId: listStablecoins
+      responses:
+        "200":
+          description: Stablecoins list
+          content:
+            application/json:
+              schema:
+                type: object
+  /stablecoincharts/all:
+    get:
+      tags: [Stablecoins]
+      summary: Historical stablecoin market cap (all)
+      operationId: getStablecoinChartsAll
+      responses:
+        "200":
+          description: Historical stablecoin mcap
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /stablecoincharts/{chain}:
+    get:
+      tags: [Stablecoins]
+      summary: Stablecoin market cap by chain
+      operationId: getStablecoinChartsByChain
+      parameters:
+        - in: path
+          name: chain
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Stablecoin mcap series for chain
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /stablecoin/{asset}:
+    get:
+      tags: [Stablecoins]
+      summary: Historical data for a stablecoin asset
+      operationId: getStablecoinAsset
+      parameters:
+        - in: path
+          name: asset
+          required: true
+          schema: { type: integer }
+          description: Stablecoin ID
+      responses:
+        "200":
+          description: Stablecoin detail
+          content:
+            application/json:
+              schema:
+                type: object
+  /stablecoinchains:
+    get:
+      tags: [Stablecoins]
+      summary: Stablecoin market cap by chain (all chains)
+      operationId: getStablecoinChains
+      responses:
+        "200":
+          description: Stablecoin chains list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /stablecoinprices:
+    get:
+      tags: [Stablecoins]
+      summary: Historical prices for stablecoins
+      operationId: getStablecoinPrices
+      responses:
+        "200":
+          description: Price history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /pools:
+    get:
+      tags: [Yields]
+      summary: Latest yield pool data
+      operationId: listPools
+      responses:
+        "200":
+          description: Pools list
+          content:
+            application/json:
+              schema:
+                type: object
+  /chart/{pool}:
+    get:
+      tags: [Yields]
+      summary: Pool APY and TVL history
+      operationId: getPoolChart
+      parameters:
+        - in: path
+          name: pool
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Pool history
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/dexs:
+    get:
+      tags: [Volumes]
+      summary: All DEX summaries
+      operationId: overviewDexs
+      responses:
+        "200":
+          description: DEX overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/dexs/{chain}:
+    get:
+      tags: [Volumes]
+      summary: DEX overview filtered by chain
+      operationId: overviewDexsByChain
+      parameters:
+        - in: path
+          name: chain
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: DEX overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /summary/dexs/{protocol}:
+    get:
+      tags: [Volumes]
+      summary: DEX volume summary for a protocol
+      operationId: summaryDexsProtocol
+      parameters:
+        - in: path
+          name: protocol
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: DEX summary
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/options:
+    get:
+      tags: [Volumes]
+      summary: Options DEX overview
+      operationId: overviewOptions
+      responses:
+        "200":
+          description: Options overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/options/{chain}:
+    get:
+      tags: [Volumes]
+      summary: Options DEX overview by chain
+      operationId: overviewOptionsByChain
+      parameters:
+        - in: path
+          name: chain
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Options overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /summary/options/{protocol}:
+    get:
+      tags: [Volumes]
+      summary: Options DEX summary for a protocol
+      operationId: summaryOptionsProtocol
+      parameters:
+        - in: path
+          name: protocol
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Options summary
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/open-interest:
+    get:
+      tags: [Volumes]
+      summary: Open interest exchanges overview
+      operationId: openInterestOverview
+      responses:
+        "200":
+          description: Open interest data
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/fees:
+    get:
+      tags: [Fees]
+      summary: Protocol fees and revenue overview
+      operationId: feesOverview
+      responses:
+        "200":
+          description: Fees overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/fees/{chain}:
+    get:
+      tags: [Fees]
+      summary: Fees and revenue by chain
+      operationId: feesOverviewByChain
+      parameters:
+        - in: path
+          name: chain
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Fees by chain
+          content:
+            application/json:
+              schema:
+                type: object
+  /summary/fees/{protocol}:
+    get:
+      tags: [Fees]
+      summary: Protocol fees history
+      operationId: feesSummaryProtocol
+      parameters:
+        - in: path
+          name: protocol
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Fees summary
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKeyPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: >-
+        Pro API key is supplied as a path segment in the base URL
+        (pro-api.llama.fi/{apiKey}); this scheme is a placeholder.
+security: []
