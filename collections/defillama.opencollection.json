@@ -1,0 +1,546 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DefiLlama Public API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TVL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all protocols with current TVL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/protocols"
+          },
+          "docs": "List all protocols with current TVL"
+        },
+        {
+          "info": {
+            "name": "Historical TVL of a protocol with chain and token breakdowns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/protocol/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path",
+                "description": "Protocol slug, e.g. aave"
+              }
+            ]
+          },
+          "docs": "Historical TVL of a protocol with chain and token breakdowns"
+        },
+        {
+          "info": {
+            "name": "Current TVL of a protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/tvl/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Current TVL of a protocol"
+        },
+        {
+          "info": {
+            "name": "Historical TVL across all chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/v2/historicalChainTvl"
+          },
+          "docs": "Historical TVL across all chains"
+        },
+        {
+          "info": {
+            "name": "Historical TVL for a specific chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/v2/historicalChainTvl/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Historical TVL for a specific chain"
+        },
+        {
+          "info": {
+            "name": "Current TVL of all chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/v2/chains"
+          },
+          "docs": "Current TVL of all chains"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Coins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Current token prices by contract address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/prices/current/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path",
+                "description": "Comma-separated coins, e.g. ethereum:0x...,coingecko:ethereum"
+              }
+            ]
+          },
+          "docs": "Current token prices by contract address"
+        },
+        {
+          "info": {
+            "name": "Historical token prices at a UNIX timestamp",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/prices/historical/:timestamp/:coins",
+            "params": [
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Historical token prices at a UNIX timestamp"
+        },
+        {
+          "info": {
+            "name": "Batch historical prices for many coins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/batchHistorical",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded mapping of coin to array of timestamps"
+              }
+            ]
+          },
+          "docs": "Batch historical prices for many coins"
+        },
+        {
+          "info": {
+            "name": "Token price chart at intervals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/chart/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Token price chart at intervals"
+        },
+        {
+          "info": {
+            "name": "Price percent change for coins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/percentage/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Price percent change for coins"
+        },
+        {
+          "info": {
+            "name": "First recorded price for coins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/prices/first/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "First recorded price for coins"
+        },
+        {
+          "info": {
+            "name": "Closest block on a chain to a UNIX timestamp",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/block/:chain/:timestamp",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Closest block on a chain to a UNIX timestamp"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Stablecoins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List stablecoins with circulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoins"
+          },
+          "docs": "List stablecoins with circulation"
+        },
+        {
+          "info": {
+            "name": "Historical stablecoin market cap (all)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoincharts/all"
+          },
+          "docs": "Historical stablecoin market cap (all)"
+        },
+        {
+          "info": {
+            "name": "Stablecoin market cap by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoincharts/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stablecoin market cap by chain"
+        },
+        {
+          "info": {
+            "name": "Historical data for a stablecoin asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoin/:asset",
+            "params": [
+              {
+                "name": "asset",
+                "value": "",
+                "type": "path",
+                "description": "Stablecoin ID"
+              }
+            ]
+          },
+          "docs": "Historical data for a stablecoin asset"
+        },
+        {
+          "info": {
+            "name": "Stablecoin market cap by chain (all chains)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoinchains"
+          },
+          "docs": "Stablecoin market cap by chain (all chains)"
+        },
+        {
+          "info": {
+            "name": "Historical prices for stablecoins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoinprices"
+          },
+          "docs": "Historical prices for stablecoins"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Yields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest yield pool data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/pools"
+          },
+          "docs": "Latest yield pool data"
+        },
+        {
+          "info": {
+            "name": "Pool APY and TVL history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/chart/:pool",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Pool APY and TVL history"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Volumes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All DEX summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/dexs"
+          },
+          "docs": "All DEX summaries"
+        },
+        {
+          "info": {
+            "name": "DEX overview filtered by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/dexs/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DEX overview filtered by chain"
+        },
+        {
+          "info": {
+            "name": "DEX volume summary for a protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/summary/dexs/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DEX volume summary for a protocol"
+        },
+        {
+          "info": {
+            "name": "Options DEX overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/options"
+          },
+          "docs": "Options DEX overview"
+        },
+        {
+          "info": {
+            "name": "Options DEX overview by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/options/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Options DEX overview by chain"
+        },
+        {
+          "info": {
+            "name": "Options DEX summary for a protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/summary/options/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Options DEX summary for a protocol"
+        },
+        {
+          "info": {
+            "name": "Open interest exchanges overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/open-interest"
+          },
+          "docs": "Open interest exchanges overview"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Protocol fees and revenue overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/fees"
+          },
+          "docs": "Protocol fees and revenue overview"
+        },
+        {
+          "info": {
+            "name": "Fees and revenue by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/fees/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fees and revenue by chain"
+        },
+        {
+          "info": {
+            "name": "Protocol fees history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/summary/fees/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Protocol fees history"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
