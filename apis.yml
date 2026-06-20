@@ -2,7 +2,7 @@ aid: defillama
 url: https://raw.githubusercontent.com/api-evangelist/defillama/refs/heads/main/apis.yml
 name: DefiLlama
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Web3
   - DeFi
@@ -32,7 +32,7 @@ apis:
       - DEX Volume
       - Fees
       - Free
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.llama.fi
     humanURL: https://defillama.com/docs/api
     description: >-
@@ -64,7 +64,7 @@ apis:
       - Bridges
       - Treasuries
       - Commercial
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://pro-api.llama.fi
     humanURL: https://defillama.com/pro-api
     description: >-
