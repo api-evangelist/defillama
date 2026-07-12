@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/defillama-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKeyPath
+  type: apiKey
+  in: query
+  parameter: apiKey
+  description: Pro API key is supplied as a path segment in the base URL (pro-api.llama.fi/{apiKey});
+    this scheme is a placeholder.
+  sources:
+  - openapi/defillama-openapi.yml

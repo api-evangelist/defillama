@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: defillama.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 20 06:27:35 2026 GMT
+  hsts: false
+- host: api.llama.fi
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 21 20:27:49 2026 GMT
+  hsts: null
+- host: pro-api.llama.fi
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 24 13:55:53 2026 GMT
+  hsts: null
+domains:
+- domain: defillama.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: llama.fi
+  dnssec: true
+  caa: []
+  spf: false
+  dmarc: false

@@ -85,6 +85,10 @@ apis:
       - Token-unlock alerting
       - Treasury compliance dashboards
 common:
+  - type: DomainSecurity
+    url: security/defillama-domain-security.yml
+  - type: Authentication
+    url: authentication/defillama-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/defillama
   - type: Portal
