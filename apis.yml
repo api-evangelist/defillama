@@ -85,6 +85,8 @@ apis:
       - Token-unlock alerting
       - Treasury compliance dashboards
 common:
+  - type: AgenticAccess
+    url: agentic-access/defillama-agentic-access.yml
   - type: DomainSecurity
     url: security/defillama-domain-security.yml
   - type: Authentication
