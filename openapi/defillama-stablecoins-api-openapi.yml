@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: DefiLlama Public Coins Stablecoins API
+  version: 1.0.0
+  description: DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.
+  contact:
+    name: DefiLlama
+    url: https://defillama.com/docs/api
+  license:
+    name: Open Data
+    url: https://defillama.com
+servers:
+- url: https://api.llama.fi
+  description: Free public API (no auth)
+- url: https://coins.llama.fi
+  description: Coins and prices API
+- url: https://stablecoins.llama.fi
+  description: Stablecoins API
+- url: https://yields.llama.fi
+  description: Yields API
+- url: https://pro-api.llama.fi/{apiKey}
+  description: Pro API (paid)
+  variables:
+    apiKey:
+      default: YOUR_API_KEY
+      description: DefiLlama Pro API key
+security: []
+tags:
+- name: Stablecoins
+paths:
+  /stablecoins:
+    get:
+      tags:
+      - Stablecoins
+      summary: List stablecoins with circulation
+      operationId: listStablecoins
+      responses:
+        '200':
+          description: Stablecoins list
+          content:
+            application/json:
+              schema:
+                type: object
+  /stablecoincharts/all:
+    get:
+      tags:
+      - Stablecoins
+      summary: Historical stablecoin market cap (all)
+      operationId: getStablecoinChartsAll
+      responses:
+        '200':
+          description: Historical stablecoin mcap
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /stablecoincharts/{chain}:
+    get:
+      tags:
+      - Stablecoins
+      summary: Stablecoin market cap by chain
+      operationId: getStablecoinChartsByChain
+      parameters:
+      - in: path
+        name: chain
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Stablecoin mcap series for chain
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /stablecoin/{asset}:
+    get:
+      tags:
+      - Stablecoins
+      summary: Historical data for a stablecoin asset
+      operationId: getStablecoinAsset
+      parameters:
+      - in: path
+        name: asset
+        required: true
+        schema:
+          type: integer
+        description: Stablecoin ID
+      responses:
+        '200':
+          description: Stablecoin detail
+          content:
+            application/json:
+              schema:
+                type: object
+  /stablecoinchains:
+    get:
+      tags:
+      - Stablecoins
+      summary: Stablecoin market cap by chain (all chains)
+      operationId: getStablecoinChains
+      responses:
+        '200':
+          description: Stablecoin chains list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /stablecoinprices:
+    get:
+      tags:
+      - Stablecoins
+      summary: Historical prices for stablecoins
+      operationId: getStablecoinPrices
+      responses:
+        '200':
+          description: Price history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+components:
+  securitySchemes:
+    apiKeyPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: Pro API key is supplied as a path segment in the base URL (pro-api.llama.fi/{apiKey}); this scheme is a placeholder.

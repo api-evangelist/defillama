@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: DefiLlama Public Coins Yields API
+  version: 1.0.0
+  description: DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.
+  contact:
+    name: DefiLlama
+    url: https://defillama.com/docs/api
+  license:
+    name: Open Data
+    url: https://defillama.com
+servers:
+- url: https://api.llama.fi
+  description: Free public API (no auth)
+- url: https://coins.llama.fi
+  description: Coins and prices API
+- url: https://stablecoins.llama.fi
+  description: Stablecoins API
+- url: https://yields.llama.fi
+  description: Yields API
+- url: https://pro-api.llama.fi/{apiKey}
+  description: Pro API (paid)
+  variables:
+    apiKey:
+      default: YOUR_API_KEY
+      description: DefiLlama Pro API key
+security: []
+tags:
+- name: Yields
+paths:
+  /pools:
+    get:
+      tags:
+      - Yields
+      summary: Latest yield pool data
+      operationId: listPools
+      responses:
+        '200':
+          description: Pools list
+          content:
+            application/json:
+              schema:
+                type: object
+  /chart/{pool}:
+    get:
+      tags:
+      - Yields
+      summary: Pool APY and TVL history
+      operationId: getPoolChart
+      parameters:
+      - in: path
+        name: pool
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Pool history
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKeyPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: Pro API key is supplied as a path segment in the base URL (pro-api.llama.fi/{apiKey}); this scheme is a placeholder.

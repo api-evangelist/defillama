@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: DefiLlama Public Coins TVL API
+  version: 1.0.0
+  description: DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.
+  contact:
+    name: DefiLlama
+    url: https://defillama.com/docs/api
+  license:
+    name: Open Data
+    url: https://defillama.com
+servers:
+- url: https://api.llama.fi
+  description: Free public API (no auth)
+- url: https://coins.llama.fi
+  description: Coins and prices API
+- url: https://stablecoins.llama.fi
+  description: Stablecoins API
+- url: https://yields.llama.fi
+  description: Yields API
+- url: https://pro-api.llama.fi/{apiKey}
+  description: Pro API (paid)
+  variables:
+    apiKey:
+      default: YOUR_API_KEY
+      description: DefiLlama Pro API key
+security: []
+tags:
+- name: TVL
+paths:
+  /protocols:
+    get:
+      tags:
+      - TVL
+      summary: List all protocols with current TVL
+      operationId: listProtocols
+      responses:
+        '200':
+          description: Array of protocols
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /protocol/{protocol}:
+    get:
+      tags:
+      - TVL
+      summary: Historical TVL of a protocol with chain and token breakdowns
+      operationId: getProtocol
+      parameters:
+      - in: path
+        name: protocol
+        required: true
+        schema:
+          type: string
+        description: Protocol slug, e.g. aave
+      responses:
+        '200':
+          description: Protocol detail
+          content:
+            application/json:
+              schema:
+                type: object
+  /tvl/{protocol}:
+    get:
+      tags:
+      - TVL
+      summary: Current TVL of a protocol
+      operationId: getProtocolTvl
+      parameters:
+      - in: path
+        name: protocol
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Current TVL value
+          content:
+            application/json:
+              schema:
+                type: number
+  /v2/historicalChainTvl:
+    get:
+      tags:
+      - TVL
+      summary: Historical TVL across all chains
+      operationId: getHistoricalChainTvl
+      responses:
+        '200':
+          description: Historical TVL series
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /v2/historicalChainTvl/{chain}:
+    get:
+      tags:
+      - TVL
+      summary: Historical TVL for a specific chain
+      operationId: getHistoricalChainTvlByChain
+      parameters:
+      - in: path
+        name: chain
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Historical TVL series for the chain
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /v2/chains:
+    get:
+      tags:
+      - TVL
+      summary: Current TVL of all chains
+      operationId: listChains
+      responses:
+        '200':
+          description: Array of chains with TVL
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+components:
+  securitySchemes:
+    apiKeyPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: Pro API key is supplied as a path segment in the base URL (pro-api.llama.fi/{apiKey}); this scheme is a placeholder.

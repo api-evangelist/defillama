@@ -1,0 +1,182 @@
+openapi: 3.1.0
+info:
+  title: DefiLlama Public Coins API
+  version: 1.0.0
+  description: DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.
+  contact:
+    name: DefiLlama
+    url: https://defillama.com/docs/api
+  license:
+    name: Open Data
+    url: https://defillama.com
+servers:
+- url: https://api.llama.fi
+  description: Free public API (no auth)
+- url: https://coins.llama.fi
+  description: Coins and prices API
+- url: https://stablecoins.llama.fi
+  description: Stablecoins API
+- url: https://yields.llama.fi
+  description: Yields API
+- url: https://pro-api.llama.fi/{apiKey}
+  description: Pro API (paid)
+  variables:
+    apiKey:
+      default: YOUR_API_KEY
+      description: DefiLlama Pro API key
+security: []
+tags:
+- name: Coins
+paths:
+  /prices/current/{coins}:
+    get:
+      tags:
+      - Coins
+      summary: Current token prices by contract address
+      operationId: getCurrentPrices
+      parameters:
+      - in: path
+        name: coins
+        required: true
+        schema:
+          type: string
+        description: Comma-separated coins, e.g. ethereum:0x...,coingecko:ethereum
+      responses:
+        '200':
+          description: Prices map
+          content:
+            application/json:
+              schema:
+                type: object
+  /prices/historical/{timestamp}/{coins}:
+    get:
+      tags:
+      - Coins
+      summary: Historical token prices at a UNIX timestamp
+      operationId: getHistoricalPrices
+      parameters:
+      - in: path
+        name: timestamp
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: coins
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Historical prices map
+          content:
+            application/json:
+              schema:
+                type: object
+  /batchHistorical:
+    get:
+      tags:
+      - Coins
+      summary: Batch historical prices for many coins
+      operationId: batchHistoricalPrices
+      parameters:
+      - in: query
+        name: coins
+        required: true
+        schema:
+          type: string
+        description: JSON-encoded mapping of coin to array of timestamps
+      responses:
+        '200':
+          description: Batch historical prices
+          content:
+            application/json:
+              schema:
+                type: object
+  /chart/{coins}:
+    get:
+      tags:
+      - Coins
+      summary: Token price chart at intervals
+      operationId: getCoinChart
+      parameters:
+      - in: path
+        name: coins
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Chart data
+          content:
+            application/json:
+              schema:
+                type: object
+  /percentage/{coins}:
+    get:
+      tags:
+      - Coins
+      summary: Price percent change for coins
+      operationId: getPercentageChange
+      parameters:
+      - in: path
+        name: coins
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Percent change values
+          content:
+            application/json:
+              schema:
+                type: object
+  /prices/first/{coins}:
+    get:
+      tags:
+      - Coins
+      summary: First recorded price for coins
+      operationId: getFirstPrices
+      parameters:
+      - in: path
+        name: coins
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Earliest prices
+          content:
+            application/json:
+              schema:
+                type: object
+  /block/{chain}/{timestamp}:
+    get:
+      tags:
+      - Coins
+      summary: Closest block on a chain to a UNIX timestamp
+      operationId: getBlock
+      parameters:
+      - in: path
+        name: chain
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: timestamp
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Block info
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKeyPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: Pro API key is supplied as a path segment in the base URL (pro-api.llama.fi/{apiKey}); this scheme is a placeholder.

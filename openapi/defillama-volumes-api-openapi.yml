@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: DefiLlama Public Coins Volumes API
+  version: 1.0.0
+  description: DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.
+  contact:
+    name: DefiLlama
+    url: https://defillama.com/docs/api
+  license:
+    name: Open Data
+    url: https://defillama.com
+servers:
+- url: https://api.llama.fi
+  description: Free public API (no auth)
+- url: https://coins.llama.fi
+  description: Coins and prices API
+- url: https://stablecoins.llama.fi
+  description: Stablecoins API
+- url: https://yields.llama.fi
+  description: Yields API
+- url: https://pro-api.llama.fi/{apiKey}
+  description: Pro API (paid)
+  variables:
+    apiKey:
+      default: YOUR_API_KEY
+      description: DefiLlama Pro API key
+security: []
+tags:
+- name: Volumes
+paths:
+  /overview/dexs:
+    get:
+      tags:
+      - Volumes
+      summary: All DEX summaries
+      operationId: overviewDexs
+      responses:
+        '200':
+          description: DEX overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/dexs/{chain}:
+    get:
+      tags:
+      - Volumes
+      summary: DEX overview filtered by chain
+      operationId: overviewDexsByChain
+      parameters:
+      - in: path
+        name: chain
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: DEX overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /summary/dexs/{protocol}:
+    get:
+      tags:
+      - Volumes
+      summary: DEX volume summary for a protocol
+      operationId: summaryDexsProtocol
+      parameters:
+      - in: path
+        name: protocol
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: DEX summary
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/options:
+    get:
+      tags:
+      - Volumes
+      summary: Options DEX overview
+      operationId: overviewOptions
+      responses:
+        '200':
+          description: Options overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/options/{chain}:
+    get:
+      tags:
+      - Volumes
+      summary: Options DEX overview by chain
+      operationId: overviewOptionsByChain
+      parameters:
+      - in: path
+        name: chain
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Options overview
+          content:
+            application/json:
+              schema:
+                type: object
+  /summary/options/{protocol}:
+    get:
+      tags:
+      - Volumes
+      summary: Options DEX summary for a protocol
+      operationId: summaryOptionsProtocol
+      parameters:
+      - in: path
+        name: protocol
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Options summary
+          content:
+            application/json:
+              schema:
+                type: object
+  /overview/open-interest:
+    get:
+      tags:
+      - Volumes
+      summary: Open interest exchanges overview
+      operationId: openInterestOverview
+      responses:
+        '200':
+          description: Open interest data
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKeyPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: Pro API key is supplied as a path segment in the base URL (pro-api.llama.fi/{apiKey}); this scheme is a placeholder.
