@@ -1,0 +1,24 @@
+{
+  "provider": "defillama",
+  "sources": [
+    "defillama-coins-api-openapi.yml",
+    "defillama-fees-api-openapi.yml",
+    "defillama-stablecoins-api-openapi.yml",
+    "defillama-tvl-api-openapi.yml",
+    "defillama-volumes-api-openapi.yml",
+    "defillama-yields-api-openapi.yml"
+  ],
+  "outputs": [
+    "defillama-coins-api-openapi.yml",
+    "defillama-fees-api-openapi.yml",
+    "defillama-stablecoins-api-openapi.yml",
+    "defillama-tvl-api-openapi.yml",
+    "defillama-volumes-api-openapi.yml",
+    "defillama-yields-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
