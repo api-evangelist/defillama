@@ -28,7 +28,7 @@ tags:
   - Open Source
 created: '2026-05-08'
 modified: '2026-05-08'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 description: >-
   DefiLlama is the largest open-source DeFi TVL and yield aggregator. It publishes a free public
   REST API (api.llama.fi) and a Pro API (pro-api.llama.fi) that adds higher rate limits and
