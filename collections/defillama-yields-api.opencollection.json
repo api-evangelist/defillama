@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DefiLlama Public Coins Yields API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Yields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest yield pool data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/pools"
+          },
+          "docs": "Latest yield pool data"
+        },
+        {
+          "info": {
+            "name": "Pool APY and TVL history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/chart/:pool",
+            "params": [
+              {
+                "name": "pool",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Pool APY and TVL history"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

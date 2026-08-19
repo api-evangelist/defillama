@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DefiLlama Public Coins API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Coins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Current token prices by contract address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/prices/current/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path",
+                "description": "Comma-separated coins, e.g. ethereum:0x...,coingecko:ethereum"
+              }
+            ]
+          },
+          "docs": "Current token prices by contract address"
+        },
+        {
+          "info": {
+            "name": "Historical token prices at a UNIX timestamp",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/prices/historical/:timestamp/:coins",
+            "params": [
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Historical token prices at a UNIX timestamp"
+        },
+        {
+          "info": {
+            "name": "Batch historical prices for many coins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/batchHistorical",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded mapping of coin to array of timestamps"
+              }
+            ]
+          },
+          "docs": "Batch historical prices for many coins"
+        },
+        {
+          "info": {
+            "name": "Token price chart at intervals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/chart/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Token price chart at intervals"
+        },
+        {
+          "info": {
+            "name": "Price percent change for coins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/percentage/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Price percent change for coins"
+        },
+        {
+          "info": {
+            "name": "First recorded price for coins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/prices/first/:coins",
+            "params": [
+              {
+                "name": "coins",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "First recorded price for coins"
+        },
+        {
+          "info": {
+            "name": "Closest block on a chain to a UNIX timestamp",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/block/:chain/:timestamp",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Closest block on a chain to a UNIX timestamp"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

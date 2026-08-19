@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "3e184eab-203b-4464-8642-0c133d3c3df0",
+      "name": "Fees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cc82041-3dc4-4524-8c1b-c113a800750a",
+          "name": "Protocol fees and revenue overview",
+          "request": {
+            "name": "Protocol fees and revenue overview",
+            "description": {},
+            "url": {
+              "path": [
+                "overview",
+                "fees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7bfcde2c-faa3-45ca-9cc8-2c966bd4616a",
+              "name": "Fees overview",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "overview",
+                    "fees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d295c76-b225-4684-90f1-3f42e81abd65",
+          "name": "Fees and revenue by chain",
+          "request": {
+            "name": "Fees and revenue by chain",
+            "description": {},
+            "url": {
+              "path": [
+                "overview",
+                "fees",
+                ":chain"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18961660-38e9-4d98-ab7e-03101039049e",
+              "name": "Fees by chain",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "overview",
+                    "fees",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7c7dc02-6051-45d9-af41-89e62cc6ea34",
+          "name": "Protocol fees history",
+          "request": {
+            "name": "Protocol fees history",
+            "description": {},
+            "url": {
+              "path": [
+                "summary",
+                "fees",
+                ":protocol"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "protocol",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ac92a25-82bc-4f82-8ba2-9e076b946221",
+              "name": "Fees summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "summary",
+                    "fees",
+                    ":protocol"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "protocol",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.llama.fi",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3708966d-d23c-4220-8eed-1ef20fd6a151",
+    "name": "DefiLlama Public Coins Fees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.\n\nContact Support:\n Name: DefiLlama",
+      "type": "text/plain"
+    }
+  }
+}

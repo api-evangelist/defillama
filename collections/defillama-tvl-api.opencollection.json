@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DefiLlama Public Coins TVL API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TVL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all protocols with current TVL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/protocols"
+          },
+          "docs": "List all protocols with current TVL"
+        },
+        {
+          "info": {
+            "name": "Historical TVL of a protocol with chain and token breakdowns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/protocol/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path",
+                "description": "Protocol slug, e.g. aave"
+              }
+            ]
+          },
+          "docs": "Historical TVL of a protocol with chain and token breakdowns"
+        },
+        {
+          "info": {
+            "name": "Current TVL of a protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/tvl/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Current TVL of a protocol"
+        },
+        {
+          "info": {
+            "name": "Historical TVL across all chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/v2/historicalChainTvl"
+          },
+          "docs": "Historical TVL across all chains"
+        },
+        {
+          "info": {
+            "name": "Historical TVL for a specific chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/v2/historicalChainTvl/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Historical TVL for a specific chain"
+        },
+        {
+          "info": {
+            "name": "Current TVL of all chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/v2/chains"
+          },
+          "docs": "Current TVL of all chains"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

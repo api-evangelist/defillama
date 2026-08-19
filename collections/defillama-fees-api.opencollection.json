@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DefiLlama Public Coins Fees API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Protocol fees and revenue overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/fees"
+          },
+          "docs": "Protocol fees and revenue overview"
+        },
+        {
+          "info": {
+            "name": "Fees and revenue by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/fees/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fees and revenue by chain"
+        },
+        {
+          "info": {
+            "name": "Protocol fees history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/summary/fees/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Protocol fees history"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

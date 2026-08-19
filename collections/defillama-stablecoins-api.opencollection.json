@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DefiLlama Public Coins Stablecoins API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stablecoins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List stablecoins with circulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoins"
+          },
+          "docs": "List stablecoins with circulation"
+        },
+        {
+          "info": {
+            "name": "Historical stablecoin market cap (all)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoincharts/all"
+          },
+          "docs": "Historical stablecoin market cap (all)"
+        },
+        {
+          "info": {
+            "name": "Stablecoin market cap by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoincharts/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stablecoin market cap by chain"
+        },
+        {
+          "info": {
+            "name": "Historical data for a stablecoin asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoin/:asset",
+            "params": [
+              {
+                "name": "asset",
+                "value": "",
+                "type": "path",
+                "description": "Stablecoin ID"
+              }
+            ]
+          },
+          "docs": "Historical data for a stablecoin asset"
+        },
+        {
+          "info": {
+            "name": "Stablecoin market cap by chain (all chains)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoinchains"
+          },
+          "docs": "Stablecoin market cap by chain (all chains)"
+        },
+        {
+          "info": {
+            "name": "Historical prices for stablecoins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/stablecoinprices"
+          },
+          "docs": "Historical prices for stablecoins"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

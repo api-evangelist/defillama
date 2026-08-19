@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "aebcf672-5659-43b1-88ae-c28d2ebd46af",
+      "name": "Yields",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85be18e9-7067-4bab-bab5-e7bbb6c9c235",
+          "name": "Latest yield pool data",
+          "request": {
+            "name": "Latest yield pool data",
+            "description": {},
+            "url": {
+              "path": [
+                "pools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c50bddc-08bd-433d-bee1-d5b64ccfa59a",
+              "name": "Pools list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f359241-16d4-4b69-9eda-380b0579b8a6",
+          "name": "Pool APY and TVL history",
+          "request": {
+            "name": "Pool APY and TVL history",
+            "description": {},
+            "url": {
+              "path": [
+                "chart",
+                ":pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pool",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7fabe75-10bd-4807-a137-c49ea60a7af8",
+              "name": "Pool history",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chart",
+                    ":pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pool",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.llama.fi",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c73af354-0997-4ce0-868d-0e20dcd46d28",
+    "name": "DefiLlama Public Coins Yields API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.\n\nContact Support:\n Name: DefiLlama",
+      "type": "text/plain"
+    }
+  }
+}

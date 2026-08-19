@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "f95c2c3e-17c3-4d77-9180-16a5bdab3b11",
+      "name": "Stablecoins",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ec7ad133-11eb-4992-9ee2-c583f101c98f",
+          "name": "List stablecoins with circulation",
+          "request": {
+            "name": "List stablecoins with circulation",
+            "description": {},
+            "url": {
+              "path": [
+                "stablecoins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5ff5bfe-d2a5-4676-9011-1db5693919fd",
+              "name": "Stablecoins list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stablecoins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cdb1b09-d518-4a6c-932d-f2fbb829c7fc",
+          "name": "Historical stablecoin market cap (all)",
+          "request": {
+            "name": "Historical stablecoin market cap (all)",
+            "description": {},
+            "url": {
+              "path": [
+                "stablecoincharts",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45029ea0-25ef-4555-b134-750689eca0ca",
+              "name": "Historical stablecoin mcap",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stablecoincharts",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01f5363b-b2ec-4860-b582-ac65b6897c9d",
+          "name": "Stablecoin market cap by chain",
+          "request": {
+            "name": "Stablecoin market cap by chain",
+            "description": {},
+            "url": {
+              "path": [
+                "stablecoincharts",
+                ":chain"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6556142-f41c-4fdd-b52e-6950b8b169df",
+              "name": "Stablecoin mcap series for chain",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stablecoincharts",
+                    ":chain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5949e86d-bcb4-40f7-a50b-1eac4ab35f84",
+          "name": "Historical data for a stablecoin asset",
+          "request": {
+            "name": "Historical data for a stablecoin asset",
+            "description": {},
+            "url": {
+              "path": [
+                "stablecoin",
+                ":asset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "asset",
+                  "description": "(Required) Stablecoin ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51022424-cba2-44d8-bea0-fe17b07e3e9c",
+              "name": "Stablecoin detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stablecoin",
+                    ":asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "asset",
+                      "description": "(Required) Stablecoin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de747193-1f16-4855-b08a-c1d9a2f1e8ca",
+          "name": "Stablecoin market cap by chain (all chains)",
+          "request": {
+            "name": "Stablecoin market cap by chain (all chains)",
+            "description": {},
+            "url": {
+              "path": [
+                "stablecoinchains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb27c492-bbab-47cc-9e40-5df6a77c1218",
+              "name": "Stablecoin chains list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stablecoinchains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6ee593e-9063-4fcb-9884-5a685df3d4d7",
+          "name": "Historical prices for stablecoins",
+          "request": {
+            "name": "Historical prices for stablecoins",
+            "description": {},
+            "url": {
+              "path": [
+                "stablecoinprices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb79d237-57c5-4a9c-9df8-df433201e458",
+              "name": "Price history",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stablecoinprices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.llama.fi",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6bc6e3e5-e022-4f35-9942-95ba586352cd",
+    "name": "DefiLlama Public Coins Stablecoins API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "DefiLlama is the largest open-source DeFi TVL and yield aggregator. The public REST API at api.llama.fi exposes TVL, prices, stablecoins, yields, DEX/options volumes, fees, and revenue datasets without authentication. The Pro API at pro-api.llama.fi provides higher rate limits and additional endpoints under a paid plan.\n\nContact Support:\n Name: DefiLlama",
+      "type": "text/plain"
+    }
+  }
+}

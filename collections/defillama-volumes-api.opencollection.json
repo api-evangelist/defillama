@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DefiLlama Public Coins Volumes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Volumes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All DEX summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/dexs"
+          },
+          "docs": "All DEX summaries"
+        },
+        {
+          "info": {
+            "name": "DEX overview filtered by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/dexs/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DEX overview filtered by chain"
+        },
+        {
+          "info": {
+            "name": "DEX volume summary for a protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/summary/dexs/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DEX volume summary for a protocol"
+        },
+        {
+          "info": {
+            "name": "Options DEX overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/options"
+          },
+          "docs": "Options DEX overview"
+        },
+        {
+          "info": {
+            "name": "Options DEX overview by chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/options/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Options DEX overview by chain"
+        },
+        {
+          "info": {
+            "name": "Options DEX summary for a protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/summary/options/:protocol",
+            "params": [
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Options DEX summary for a protocol"
+        },
+        {
+          "info": {
+            "name": "Open interest exchanges overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.llama.fi/overview/open-interest"
+          },
+          "docs": "Open interest exchanges overview"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
