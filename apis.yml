@@ -179,6 +179,8 @@ apis:
   - type: OpenAPI
     url: openapi/defillama-yields-api-openapi.yml
 common:
+  - type: Website
+    url: https://www.defillama.com/
   - type: AgenticAccess
     url: agentic-access/defillama-agentic-access.yml
   - type: DomainSecurity
