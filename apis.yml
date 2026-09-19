@@ -34,8 +34,8 @@ tags:
   - TVL
   - Crypto
   - Stablecoins
-  - Yields
-  - Bridges
+  - Yield
+  - Bridge
   - Aggregator
   - Open-Source
 tags_raw:
@@ -60,6 +60,14 @@ apis:
 - aid: defillama:public-api
   name: DefiLlama Public API
   tags:
+  - DeFi
+  - TVL
+  - Stablecoins
+  - Yield
+  - DEX Volume
+  - Fees
+  - Free
+  tags_raw:
   - DeFi
   - TVL
   - Stablecoins
@@ -92,6 +100,13 @@ apis:
 - aid: defillama:pro-api
   name: DefiLlama Pro API
   tags:
+  - DeFi
+  - TVL
+  - Token Unlocks
+  - Bridge
+  - Treasuries
+  - Commercial
+  tags_raw:
   - DeFi
   - TVL
   - Token Unlocks
@@ -174,6 +189,8 @@ apis:
   humanURL: https://defillama.com/docs/api
   baseURL: https://api.llama.fi
   tags:
+  - Yield
+  tags_raw:
   - Yields
   properties:
   - type: OpenAPI
