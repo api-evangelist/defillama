@@ -1,12 +1,7 @@
 {
   "provider": "defillama",
   "sources": [
-    "defillama-coins-api-openapi.yml",
-    "defillama-fees-api-openapi.yml",
-    "defillama-stablecoins-api-openapi.yml",
-    "defillama-tvl-api-openapi.yml",
-    "defillama-volumes-api-openapi.yml",
-    "defillama-yields-api-openapi.yml"
+    "_original/defillama-openapi.yml"
   ],
   "outputs": [
     "defillama-coins-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "defillama-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "defillama-coins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "defillama-fees-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "defillama-stablecoins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "defillama-tvl-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "defillama-volumes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "defillama-yields-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
