@@ -50,7 +50,7 @@ tags_raw:
   - Open Source
   - Open-Source
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 description: >-
   DefiLlama is the largest open-source DeFi TVL and yield aggregator. It publishes a free public
@@ -197,6 +197,8 @@ apis:
   - type: OpenAPI
     url: openapi/defillama-yields-api-openapi.yml
 common:
+  - url: https://defillama.com/press
+    type: Blog
   - type: Website
     url: https://www.defillama.com/
   - type: AgenticAccess
