@@ -1,4 +1,4 @@
-# DefiLlama (defillama)
+# DefiLlama
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,86 +66,136 @@
 
 DefiLlama is the largest open-source DeFi TVL and yield aggregator. It publishes a free public REST API (api.llama.fi) and a Pro API (pro-api.llama.fi) that adds higher rate limits and exclusive endpoints for token unlocks, bridges, digital-asset treasuries, and other advanced datasets. Free API requires no authentication; Pro is $300/month.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/defillama/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/defillama/refs/heads/main/apis.yml)
+**Areas:** Web3 · DeFi · TVL · Cryptocurrency · Stablecoins · Yield · Bridge · Aggregator · Open Source
 
-## Tags
+## DefiLlama on APIs.io
 
-- Web3
-- DeFi
-- TVL
-- Crypto
-- Stablecoins
-- Yields
-- Bridges
-- Aggregator
-- Open Source
+Everything profiled for DefiLlama is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/defillama/](https://apis.io/providers/defillama/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (8)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [DefiLlama Public API](https://apis.io/apis/defillama/public-api/) — Free, no-auth REST API exposing 31+ endpoints for protocol TVL, chain TVL, coin prices, stablecoin metrics, yield pools, DEX volumes, and fees. Underpins…
+- [DefiLlama Pro API](https://apis.io/apis/defillama/pro-api/) — Paid REST API ($300/month) with higher rate limits and 38 exclusive endpoints covering token unlocks, cross-chain bridges, digital-asset treasury data, and…
+- [DefiLlama Coins API](https://apis.io/apis/defillama/defillama-coins-api/) — The Coins API from DefiLlama — 7 operation(s) for coins.
+- [DefiLlama Fees API](https://apis.io/apis/defillama/defillama-fees-api/) — The Fees API from DefiLlama — 3 operation(s) for fees.
+- [DefiLlama Stablecoins API](https://apis.io/apis/defillama/defillama-stablecoins-api/) — The Stablecoins API from DefiLlama — 6 operation(s) for stablecoins.
+- [DefiLlama TVL API](https://apis.io/apis/defillama/defillama-tvl-api/) — The TVL API from DefiLlama — 6 operation(s) for tvl.
+- [DefiLlama Volumes API](https://apis.io/apis/defillama/defillama-volumes-api/) — The Volumes API from DefiLlama — 7 operation(s) for volumes.
+- [DefiLlama Yields API](https://apis.io/apis/defillama/defillama-yields-api/) — The Yields API from DefiLlama — 2 operation(s) for yields.
 
-## APIs
+### Published properties
 
-### DefiLlama Public API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Free, no-auth REST API exposing 31+ endpoints for protocol TVL, chain TVL, coin prices, stablecoin metrics, yield pools, DEX volumes, and fees. Underpins thousands of dashboards and integrations.
+#### MCP servers (1)
 
-- **Human URL:** [https://defillama.com/docs/api](https://defillama.com/docs/api)
-- **Base URL:** `https://api.llama.fi`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [defillama](https://apis.io/servers/defillama/defillama/)
 
-- DeFi
-- TVL
-- Stablecoins
-- Yields
-- DEX Volume
-- Fees
-- Free
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
+- [Defillama Agentic Access](https://apis.io/agentic-access/defillama/defillama-agentic-access/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [DefiLlama Public API](https://apis.io/collections/defillama/open-defillama/)
+- [DefiLlama Public Coins API](https://apis.io/collections/defillama/open-defillama-coins-api/)
+- [DefiLlama Public Coins Fees API](https://apis.io/collections/defillama/open-defillama-fees-api/)
+- [DefiLlama Public Coins Stablecoins API](https://apis.io/collections/defillama/open-defillama-stablecoins-api/)
+- [DefiLlama Public Coins TVL API](https://apis.io/collections/defillama/open-defillama-tvl-api/)
+- [DefiLlama Public Coins Volumes API](https://apis.io/collections/defillama/open-defillama-volumes-api/)
+- [DefiLlama Public Coins Yields API](https://apis.io/collections/defillama/open-defillama-yields-api/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Defillama Authentication](https://apis.io/security/defillama/defillama-authentication/)
+- [Defillama Domain Security](https://apis.io/security/defillama/defillama-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Defillama Plans Pricing](https://apis.io/plans/defillama/defillama-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Defillama Rate Limits](https://apis.io/rate-limits/defillama/defillama-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Defillama Finops](https://apis.io/finops/defillama/defillama-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.defillama.com/)
 - [Documentation](https://defillama.com/docs/api)
 - [Pricing](https://defillama.com/pro-api)
-- [Postman Collection](collections/defillama.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/defillama.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Blog](https://defillama.com/press)
 
-### DefiLlama Pro API
+## API Evangelist rating
 
-Paid REST API ($300/month) with higher rate limits and 38 exclusive endpoints covering token unlocks, cross-chain bridges, digital-asset treasury data, and other advanced datasets. Authenticated via API key path segment.
+**Kin Score 27.9** — thin · rubric 0.25.0 · scored 2026-10-23
 
-- **Human URL:** [https://defillama.com/pro-api](https://defillama.com/pro-api)
-- **Base URL:** `https://pro-api.llama.fi`
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 41.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 15.8 |
 
-#### Tags
+**Agent readiness 48.7** — agent-ready (gated down from agent-native)
 
-- DeFi
-- TVL
-- Token Unlocks
-- Bridges
-- Treasuries
-- Commercial
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
 
-#### Properties
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
 
-- [Documentation](https://defillama.com/docs/api)
-- [Pricing](https://defillama.com/pro-api)
-- [Postman Collection](collections/defillama.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/defillama.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/defillama/](https://apis.io/providers/defillama/).
 
-## Common Properties
+## How this profile is made
 
-- [LinkedIn](https://www.linkedin.com/company/defillama)
-- [Portal](https://defillama.com/)
-- [Documentation](https://defillama.com/docs/api)
-- [Pricing](https://defillama.com/pro-api)
-- [Git Hub](https://github.com/DefiLlama)
-- [Plans](plans/defillama-plans-pricing.yml)
-- [Rate Limits](rate-limits/defillama-rate-limits.yml)
-- [Fin Ops](finops/defillama-finops.yml)
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-## Maintainers
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for DefiLlama: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/defillama/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
